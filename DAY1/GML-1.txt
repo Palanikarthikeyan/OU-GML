@@ -1,0 +1,164 @@
+
+	Good Morning All
+
+	Welcome to Graph Machine Learning (GML) Training 
+			    ___________________________
+
+	This is Palani Karthikeyan (Call: Karthik) -  Trainer.
+		    =========================
+	We will start session @ 9:30 AM IST
+	---------------------------------------------------------------------------
+
+	
+Machine Learning (ML)
+-------------------------------
+ Subset of AI
+Automatically learn and improve the patterns from Data
+
+1. Supervised Learning -  model is trained on labeled data (input-output)
+
+2. Unsupervised Learning - model is trained on unlabeled data (only inputs)
+
+3. Semi-Supervised Learning - Combines set of data (labeled data) and Set of data (unlabeled data)
+
+4. Reinforcement Learning - An Agent 
+
+General ML 
+----------------
+Collect the data - from source(file,web,APIs,DB....)
+|
+EDA - data relationship 
+|
+Feature Engineering
+|
+Split data - Training and Test
+|					
+Validate
+|
+evaluate 
+|		
+Deploy 
+|
+Monitor 
+
+
+###############################  Vs  ##################
+GML flow
+---------------
+Raw Data
+|
+Graph Construction 
+|
+Feature Engineering
+|
+Model
+|
+Training on labeled data
+|
+Evaluate
+|
+Prediction
+|
+Deploy
+|
+monitor
+
+
+########################################################################
+
+General programming 
+		  _____________________________
+ User  ---> |  input --> [ program ] -->output     |
+		  |____________________________|
+
+Vs
+
+ ML
+		 ______________________________________________
+ User ---> [ Input + Output => [ Machine ] ==> Algorithm (Model)]
+		----------------------------------------------------------------------
+                                                   
+####################################################################################################
+
+pyhon.org
+    | ==>CPython  
+	    --------------
+		C Programming
+		In python everything is an object  => class object design model
+
+		GIL is enabled 
+                 ----
+		t1  t2
+		
+ 
+
+IPython 
+
+ ananconda python 
+ GIL is disabled 
+  
+python + ML Libs 
+
+##################################################################################################
+
+Generate a Graph 
+
+import  networkx 
+
+networkx.Graph <== className  
+
+networkx.Graph() <== object 
+
+Gobj = networkx.Graph()
+
+
+>>> class Enrollment:
+...     emp_name = ''
+...     emp_DOB = ''
+...
+>>> Enrollment
+<class '__main__.Enrollment'>
+>>>
+>>> Enrollment()
+<__main__.Enrollment object at 0x0000020803218440>
+>>>
+>>> Enrollment()
+<__main__.Enrollment object at 0x0000020802D73610>
+>>>
+>>>
+>>> obj1 = Enrollment()
+>>> obj1.emp_name
+''
+>>> obj1.emp_name='Arun'
+>>> obj1.emp_DOB='1st Jan'
+>>>
+>>> obj2 = Enrollment()
+>>> obj2.emp_name
+''
+>>> obj2.emp_name='Vijay'
+>>> obj2.emp_DOB='2nd Feb'
+>>>
+>>> obj1.emp_name
+'Arun'
+>>> obj2.emp_name
+'Vijay'
+>>>
+
+>>> import networkx
+>>> networkx.Graph
+<class 'networkx.classes.graph.Graph'>
+>>> networkx.Graph()
+<networkx.classes.graph.Graph object at 0x00000208040AEA50>
+>>>
+################################################################################################
+spring_layout(GraphObject) - positions the nodes of graph(GraphObject)
+----------------------------------
+|
+spring_layout(GraphObject,seed=<pos>)
+
+################################################################################################
+
+
+
+
+
