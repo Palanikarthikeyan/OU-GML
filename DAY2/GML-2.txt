@@ -1,0 +1,255 @@
+>>> class Graph:
+...     def __init__(self,*args):
+...         print(args)
+...
+>>> Graph()
+()
+<__main__.Graph object at 0x000002EC1DAA0440>
+>>>
+>>> Graph([('A','B'),('B','C')])
+([('A', 'B'), ('B', 'C')],)
+<__main__.Graph object at 0x000002EC1D553610>
+>>>
+
+Gobj = nx.Graph()
+Gobj.add_edges_from([('A','B'),('E','F'),('A','E')])
+nx.draw(Gobj,with_labels=True)
+
+L = [('A','B'),('E','F'),('A','E')]
+Gobj = nx.Graph(L)
+nx.draw(Gobj,with_labels=True)
+
+L = [('A','B'),('E','F'),('A','E')]
+Gobj = nx.DiGraph(L)
+nx.draw(Gobj,with_labels=True)
+
+
+Gobj = nx.barabasi_albert_graph(10,5)
+nx.draw(Gobj,with_labels=True)
+
+DGobj = nx.DiGraph(Gobj) # we can create direct graph 
+nx.draw(DGobj,with_labels=True)
+
+#########################################################################################
+Feature Engineering
+--------------------------
+1. node features - individual nodes - node attributes,degrees
+    
+2. edge features - extract features from edges - edge weights,labels
+
+3. graph level features - describe the entire graph
+
+node embedding :
+ node2vec
+ deepwalk
+
+GCN - learn the node - neighborhood information
+GAT - learn the node - weights 
+GAE - learn the graph attribues
+
+Jaccard coefficient 
+-------------------------
+
+Recap set
+---------------
+set - collection - not allows any duplicate item
+
+s={10,20,30,10,20,10,20,30,10,20} 
+
+print(s) => {10,20,30}
+
+s1={'A','B'}
+s2={'A','C','D','B'}
+
+s1.union(s2) => {'A','B','C','D'}
+s1.intersection(s2) =>{'A','B'}
+...
+...
+(Node1)			(Node2)
+ Set1			Set1
+		| node1  intersection node2 |			=> size of intersection 
+JC =	      -----------------------------------------			
+		|   node1 union node2 |				=> size of union
+
+0-1
+1
+
+nodeA = {1,2,3,4}
+nodeB = {3,4,5,6}
+
+intersection of nodeA and nodeB	=>	{3,4}
+
+union of nodeA and nodeB		=>	{1,2,3,4,5,6}
+
+		{3,4}				   2
+JC	=	---------			=>    --------  = 0.33
+		{1,2,3,4,5,6}			   6		
+
+#############################################################
+
+
+[product1] [product2] ... [productN]
+
+Customer1
+Customer2
+..
+CustomerN
+
+Nodes - customer and product
+edge - link  if a customer bought the product 
+
+Product Recommendation 	-	Link Predication 
+Product Clustering 			-	node embedding + clustering
+Business segment 			-	node classification				-	Customer - by buying products
+..........................................		..............................................
+
+word2vector
+...................
+
+NLP
+------
+Application => Google Translate 
+...........................................................
+Input: Hello Good Morning	-->output:	French:	......
+
+Text(word)	--->	M/C
+		|
+		Vector (10101)
+
+1. Corpus 	-	paragraph 
+2. Documents   -      sentence
+3. Vocabulary	 -     unique words 
+
+tokenization
+
+My name is karthik, i am teaching NLP. Also i like to write code. // Corpus 
+
+D1:  My name is karthik, i am teaching NLP
+D2:  Also i like to write code
+
+unique words:
+My name is karthik,i am teaching NLP
+Also like to write code
+
+stop words
+|
+stemming - reduce the root word (ex: history  ->histori)
+|
+lemma - (history ->history ;  eating ->eat)
+..........
+ngram 
+
+
+D1 :  the food is good
+D2 :  the food is bad 
+
+[the  food  is  good  bad ] <== unique words
+
+One-Hot-Vector  encoding
+.............................................
+the   [   1	0	0	0	0
+food    0   1	0	0	0
+is	   0   0	1	0	0
+good	   0	0	0	1	0
+bad     0	0	0	0	1 ]
+
+Bag of Word(BOW) + Frequency 
+
+the food is good  bad
+---------------------------
+
+the food is good  bad
+---------- ===========
+the food is good  bad
+-------------=========
+.....
+ngram
+
+the 		food 	 good 	bad
+|		|		|		|
+(node1)	...
+
+
+import nltk
+!pip install nltk
+
+from nltk.tokenize import sent_tokenize
+########################################################################
+
+>>> class product:
+...     pid = 101
+...
+>>> class customer:
+...     cus_name='cusA'
+...
+>>> obj1 = product()
+>>> obj1.pid
+101
+>>>
+>>> obj2= customer()
+>>> obj2.cus_name
+'cusA'
+>>>
+>>> obj2.pid
+Traceback (most recent call last):
+  File "<python-input-8>", line 1, in <module>
+    obj2.pid
+AttributeError: 'customer' object has no attribute 'pid'
+>>>
+>>> class customer(product): # inheritance
+...     cus_name='cusA'
+...
+>>> obj2=customer()
+>>> obj2.pid
+101
+>>>
+>>> class product:
+...     def display(self):
+...         print('display - product details')
+...
+>>> class customer(product):
+...     def display(self):
+...         print('display - customer records')
+...
+>>> obj = customer()
+>>> obj.display()
+display - customer records
+>>> obj.display()
+display - customer records
+>>> obj.display()
+display - customer records
+>>>
+>>> class customer(product):
+...     def display(self):
+...         print('display - customer records')
+...         super().display() # calling parent class
+...
+>>>
+>>> obj = customer()
+>>> obj.display()
+display - customer records
+display - product details
+>>>
+
+>>> class product:
+...     def __init__(self):
+...         print('product class')
+...
+>>> class customer(product):
+...     def display(self):
+...         print('display customer records')
+...
+>>>
+>>> customer()
+product class
+<__main__.customer object at 0x0000026422BD0D70>
+>>>
+#####################################################################################
+PyTorch
+-----------
+ |-> DL framework 
+      ------------------------
+       Neural network, computer vision,graph learning 
+       dynamic computation graph
+       scientific computation 
+#####################################################################################
